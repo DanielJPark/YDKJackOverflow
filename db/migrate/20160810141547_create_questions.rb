@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :title
       t.string :content
       t.integer :user_id
+      t.integer :category_id
       t.integer :selected_answer_id
 
       t.timestamps(null: false)
