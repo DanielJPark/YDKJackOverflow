@@ -14,7 +14,7 @@ end
 get '/logout' do
 	session.clear
 	redirect '/'
-ends
+end
 
 get '/login' do 
 	erb :'users/login'
