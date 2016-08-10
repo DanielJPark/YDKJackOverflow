@@ -4,8 +4,13 @@ class User < ActiveRecord::Base
 	validates :email, :username, :hashed_password, { presence: true }
 	validates :email, :username, { uniqueness: true }
 
-	has_many :questions, :answers, :comments, :votes
+	has_many :questions
+  has_many :answers
+  has_many :comments
+  has_many :votes
 
+
+  include BCrypt
 	def password
   	@password ||= Password.new(hashed_password)
   end

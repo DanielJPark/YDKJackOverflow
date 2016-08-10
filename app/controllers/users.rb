@@ -5,22 +5,33 @@ end
 post '/users' do
 	@user = User.new(params[:user])
 	if @user.save
-		redirect "/login"
+		redirect "/users/login"
 	else
     erb :'users/new'
 	end
 end
+
+get '/users/:id' do
+	@user = User.find(params[:id])
+	if
+		erb :'users/show'
+	else
+		redirect "/users/new"
+	end
+end
+
+
 
 get '/logout' do
 	session.clear
 	redirect '/'
 end
 
-get '/login' do 
+get '/users/login' do
 	erb :'users/login'
-end 
+end
 
-post '/login' do 
+post '/login' do
 @user = User.find_by(email: params[:email])
 	if @user
 		if @user.authenticate(params[:password])
@@ -29,7 +40,7 @@ post '/login' do
 		else
    		erb :'login'
 		end
-	else 
+	else
 		redirect '/users/new'
 	end
-end 
+end
