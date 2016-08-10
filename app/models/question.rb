@@ -4,4 +4,5 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :votable, foreign_key: :post_id
   belongs_to :user
   belongs_to :category
+  has_one :selected_answer
 end
