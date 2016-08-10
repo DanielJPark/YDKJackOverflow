@@ -1,6 +1,6 @@
 class Answer < ActiveRecord::Base
-  has_many :comments
-  has_many :votes, as: :answer
-  belongs_to :user, as: :answer
+  has_many :comments, as: :commentable
+  has_many :votes, as: :votable
+  belongs_to :user
   belongs_to :question
 end
