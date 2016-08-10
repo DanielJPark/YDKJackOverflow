@@ -4,6 +4,6 @@ class CreateCategories < ActiveRecord::Migration
       t.string :title, {null: false}
 
       t.timestamps(null: false)
-    end
+      endti
   end
 end
