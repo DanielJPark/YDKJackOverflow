@@ -1,4 +1,4 @@
 get '/categories' do
-  @categories = Category.all
+  @categories = Category.all.order(:title)
   erb :categories
 end
