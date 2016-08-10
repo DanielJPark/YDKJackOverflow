@@ -7,31 +7,31 @@ post '/users' do
 	if @user.save
 		sessions[:user_id] = @user.id
     redirect "/"
-	else
+  else
     erb :'users/new'
-	end
+  end
 end
 
 get '/logout' do
-	sessions[:user_id] = nil 
-	redirect '/'
+  sessions[:user_id] = nil 
+  redirect '/'
 end
 
 get '/users/login' do 
-	erb :'users/login'
+  erb :'users/login'
 end 
 
 post '/users/login' do 
-@user = User.find_by(email: params[:email])
-	if @user
-		if @user.authenticate(params[:password])
-	 		session[:user_id] = @user.id
-	 		redirect "/users/show/#{session[:user_id]}"
-		else
-   		erb :'users/login'
-		end
-	else 
-		@errors = "Incorrect Username / Password"
+  @user = User.find_by(email: params[:email])
+  if @user
+    if @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect "/users/show/#{session[:user_id]}"
+    else
+      erb :'users/login'
+    end
+  else 
+    @errors = "Incorrect Username / Password"
     erb :'users/login'
-	end
+  end
 end 
