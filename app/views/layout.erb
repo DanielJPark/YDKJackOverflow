@@ -26,9 +26,9 @@
   <a href="/">home</a>
     <% unless logged_in? %>
       <a href="/users/new">register</a>
-      <a href="/login">login</a>
+      <a href="/users/login">login</a>
     <% else %>
-      <a href="/user/show/<%= session[:user_id] %>">profile</a>
+      <a href="/users/show/<%= session[:user_id] %>">profile</a>
       <a href="/logout">logout</a>
     <% end %>
 </header>
