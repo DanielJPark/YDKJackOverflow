@@ -12,12 +12,26 @@
   -->
   <link rel="stylesheet" href="/css/application.css">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
 <body>
+  <header>
+    <h2>you don't know</h2>
+    <h1>Jack Overflow</h1>
+    <a href="/">home</a>
+    <% unless logged_in? %>
+    <a href="/users/new">register</a>
+    <a href="/users/login">login</a>
+    <% else %>
+    <a href="/users/show/<%= session[:user_id] %>">profile</a>
+    <a href="/logout">logout</a>
+    <% end %>
+  </header>
   <%= yield %>
 </body>
 </html>
