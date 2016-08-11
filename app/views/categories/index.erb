@@ -1,5 +1,6 @@
-
 <h1> Categories </h1>
-<% @categories.each do |category| %>
-<li><%= category.title %></li>
-<% end %>
+<ul>
+  <% @categories.each do |category| %>
+    <li><a href="/categories/<%= category.id %>"><%= category.title %></a></li>
+  <% end %>
+</ul>
