@@ -3,7 +3,7 @@ get '/categories' do
   erb :'categories/index'
 end
 
-get '/categories/:id'
-  @questions = Category.find(:id).questions.order(:updated_at)
+get '/categories/:id' do
+  @questions = Category.find(params[:id]).questions.order(:updated_at)
   erb :'categories/show'
 end
