@@ -10,6 +10,7 @@ end
 
 get '/questions/new' do
 	if logged_in?
+		@all_categories = Category.order(:title)
 		erb :'/questions/new'
 	else 
 		redirect 'users/login'
@@ -17,7 +18,13 @@ get '/questions/new' do
 end
 
 post '/questions' do
-
+	@question = Question.new(params[:question])
+	if @question.save
+		redirect "/questions/#{@question.id}"
+	else
+		@errors = @question.errors.full_messages
+		erb :'/questions/new'
+	end
 end
 
 get '/questions/:id' do
