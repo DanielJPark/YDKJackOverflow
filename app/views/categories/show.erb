@@ -1,7 +1,13 @@
 <div class="container">
   <ul>
     <% @questions.each do |question| %>
-      <li><a href="/questions/<%= question.id %>"><%= question.title %></a></li>
+      <li><a href="/questions/<%= question.id %>">
+        <% if question.user.username == "Anonymous" %>
+          <%= question.title = "[This Question has been deleted by user]" %>
+        <% else %>
+          <%= question.title %>
+        <% end %>
+      </a></li>
     <% end %>
   </ul>
 </div>
