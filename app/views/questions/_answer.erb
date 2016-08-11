@@ -4,8 +4,12 @@
       <p>This is the selected answer CHANGEME.</p>
     </div>
   <% end %>
+  <% if answer.user.username == "Anonymous" %>
+  <p><%= answer.content = "[This Answer was deleted by the user]" %></p>
+  <% else %>
   <p><%= answer.content %> - written by: <%= answer.user.username %></p>
   <p><%= answer.score %></p>
+  <% end %>
 
   <% if answer.user == current_user %>
     <form action="/answers/<%= answer.id %>" method="post">

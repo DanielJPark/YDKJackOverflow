@@ -54,3 +54,17 @@ post '/questions/:id/comments' do
 
   redirect "/questions/#{params[:id]}"
 end
+
+delete '/questions/:id/comments/:comment_id' do
+  @comment = Comment.find_by(id: params[:comment_id])
+  @comment.destroy
+  redirect "/questions/#{params[:id]}"
+  # if @question.answers.count == 0 && @question.comments.count == 0
+  #   @question.destroy
+  #   redirect '/'
+  # else
+  #   @question.user = User.find_or_create_by(username: "Anonymous", email: "anonymous@anonymous.com", hashed_password: "password")
+  #   @question.save
+  #   redirect "/questions/#{params[:id]}"
+  # end
+end

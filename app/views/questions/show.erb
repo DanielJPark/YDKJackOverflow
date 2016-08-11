@@ -7,7 +7,7 @@
 
   <% if @question.user == current_user %>
     <form action="/questions/<%= @question.id %>" method="post">
-      <input type="submit" value="DELETE">
+      <input type="submit" value="DELETE YOUR QUESTION">
       <input name="_method" type="hidden" value="DELETE">
     </form>
   <% end %>
