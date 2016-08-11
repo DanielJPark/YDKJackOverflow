@@ -18,23 +18,26 @@ get '/questions/new' do
 end
 
 post '/questions' do
-	@question = Question.new(params[:question])
-	if @question.save
-		redirect "/questions/#{@question.id}"
-	else
-		@errors = @question.errors.full_messages
-		erb :'/questions/new'
-	end
+	if logged_in?
+    @question = Question.new(params[:question])
+    if @question.save
+      redirect "/questions/#{@question.id}"
+    else
+      @all_categories = Category.order(:title)
+      @errors = @question.errors.full_messages
+      erb :'/questions/new'
+    end
+  else
+    redirect 'users/login'
+  end
 end
 
 get '/questions/:id' do
 	@question = Question.find(params[:id])
-
 	if @question.user == User.find_by(username: "Anonymous")
 		@question.title = "[This Question was deleted by user]"
 		@question.content = "[This Question was deleted by user]"
 	end
-
 	if @question.selected_answer
 		@selected_answer = @question.selected_answer
 		@answers = @question.answers.select { |a| a.id != @selected_answer.id }
@@ -42,7 +45,6 @@ get '/questions/:id' do
 		@selected_answer = nil
 		@answers = @question.answers
 	end
-
 	erb :'/questions/show'
 end
 
