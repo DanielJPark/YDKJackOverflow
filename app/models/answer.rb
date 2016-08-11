@@ -8,6 +8,6 @@ class Answer < ActiveRecord::Base
   has_one :correctly_answered_question, foreign_key: :selected_answer_id, class_name: "Question"
 
   def score
-    self.votes.inject(0) { |v| v.value }
+    self.votes.inject(0) { |sum, v| sum + v.value }
   end
 end

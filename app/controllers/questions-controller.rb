@@ -9,12 +9,18 @@ end
 get '/questions/:id' do
   @question = Question.find(params[:id])
   @selected_answer = @question.selected_answer
-  @answers = @question.answers.select { |a| a.id != @selected_answer.id }
+  @answers = @question.answers.select { |a| a.id != @selected_answer.try(:id) }
   erb :'questions/show'
 end
 
 put '/questions/:id/edit' do
 
+end
+
+post '/questions/:id/vote' do
+  question = Question.find(params[:id])
+  Vote.create(value: 1, post: question, user: current_user)
+  redirect "/questions/#{params[:id]}"
 end
 
 get '/questions/:id/comments/new' do
