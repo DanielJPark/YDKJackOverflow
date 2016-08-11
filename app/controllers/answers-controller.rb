@@ -10,7 +10,7 @@ end
 post '/answers/:id/comments' do
   new_comment = Comment.new(params[:comment])
   new_comment.user = current_user
-  new_comment.post_type = post_type == "questions" ? "Question" : "Answer"
+  new_comment.post_type = "Answer"
   new_comment.post_id = params[:id]
   new_comment.save
 
