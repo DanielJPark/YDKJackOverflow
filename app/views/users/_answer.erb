@@ -1,0 +1,12 @@
+
+<% answers.each do|answer| %>
+<a href="/questions/<%=answer.question.id%>">
+  <% if answer.question.user.username == "Anonymous" %>
+    <%= answer.question.title = "[This Question was deleted by user]" %>
+  <% else %>
+    <%= answer.question.title %>
+  <% end %>
+  - <%= answer.content %>
+  - Score: <%= answer.score %></a>
+<br>
+<% end %>

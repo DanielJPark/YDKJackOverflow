@@ -1,0 +1,12 @@
+<% comments.each do |comment| %>
+  <br>
+  <a href="/questions/<%=comment.post.question.id%>">
+    <% if comment.post.question.user.username == "Anonymous" %>
+    <%= comment.post.question.title = "[This Question was deleted by user]" %>
+    <% else %>
+    <%= comment.post.question.title %>
+    <% end %>
+  <br>
+  <%= comment.post.content %> - <%= comment.content %></a>
+  <br>
+<% end %>
