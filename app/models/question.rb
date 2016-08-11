@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+  validates :title, :content, :user_id, :category_id, { presence: true }
+
   has_many :answers, inverse_of: :question
   has_many :comments, as: :post, inverse_of: :post
   has_many :votes, as: :post, foreign_key: :post_id, inverse_of: :post
@@ -7,6 +9,6 @@ class Question < ActiveRecord::Base
   belongs_to :selected_answer, class_name: "Answer"
 
   def score
-    self.votes.inject(0) { |v| v.value }
+    self.votes.inject(0) { |sum, v| sum + v.value }
   end
 end
