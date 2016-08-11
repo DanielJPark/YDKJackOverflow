@@ -1,0 +1,19 @@
+
+
+<%= @user.username %>
+<br>
+<% @user.questions.each do |question| %>
+<%= question.title %>
+<% end %>
+<br>
+<% @user.answers.each do|answer| %>
+<%= answer.content %>
+<% end %>
+<br>
+
+
+<% @user.comments.each do |comment| %>
+<%= comment.content %>
+<% end %>
+
+

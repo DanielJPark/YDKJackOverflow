@@ -1,0 +1,7 @@
+class Answer < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :question
+
+  has_many :comments, as: :post
+ # Remember toeate a migration!
+end
