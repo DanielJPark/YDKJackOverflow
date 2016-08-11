@@ -29,8 +29,14 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  @selected_answer = @question.selected_answer
-  @answers = @question.answers.select { |a| a.id != @selected_answer.id }
+
+  if @question.selected_answer
+  	@selected_answer = @question.selected_answer
+  	@answers = @question.answers.select { |a| a.id != @selected_answer.id }
+  else
+  	@selected_answer = nil
+  	@answers = @question.answers
+  end
   erb :'/questions/show'
 end
 
