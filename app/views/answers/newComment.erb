@@ -1,4 +1,12 @@
 <div class='container'>
+
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <h3><%= @question.title %></h3>
   <p><%= @question.content %></p>
   <p><% @question.score %></p>
@@ -6,7 +14,7 @@
   <p><%= @answer.content %></p>
   <p><%= @answer.score %></p>
   <% @comments.each do |comment|%>
-    <%= erb :_comment, layout: false, locals: { comment: comment, user: comment.user } %>
+  <%= erb :_comment, layout: false, locals: { comment: comment, user: comment.user } %>
   <% end %>
   <%= erb :_comment_form, layout: false, locals: { post_type: @post_type, post_id: @post_id} %>
 
