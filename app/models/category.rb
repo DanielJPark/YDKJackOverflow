@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
-  # Remember to create a migration!
+  validates :title, { presence: true }
+ 
   has_many :questions, inverse_of: :category
 end
