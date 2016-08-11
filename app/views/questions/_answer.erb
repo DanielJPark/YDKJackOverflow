@@ -6,5 +6,5 @@
   <% end %>
   <p><%= answer.content %></p>
   <p><%= answer.score %></p>
-  <%= erb :'questions/_comment', layout: false, locals: { comments: answer.comments, post_type: "Answer", post_id: answer.id } %>
+  <%= erb :'_comments', layout: false, locals: { comments: answer.comments, post_type: "answers", post_id: answer.id } %>
 </div>

@@ -1,0 +1,6 @@
+<div id="comments">
+  <% comments.each do |comment|%>
+    <%= erb :_comment, layout: false, locals: { comment: comment, user: comment.user } %>
+  <% end %>
+  <a href="/<%= post_type %>/<%= post_id %>/comments/new">add comment</a>
+</div>
