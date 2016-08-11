@@ -13,11 +13,7 @@ end
 
 get '/users/:id' do
 	@user = User.find(params[:id])
-	if
-		erb :'users/show'
-	else
-		redirect "/users/new"
-	end
+	erb :'users/show'
 end
 
 
