@@ -1,5 +1,5 @@
 <div class='container'>
-  <h3><%= @question.title %></h2>
+  <h3><%= @question.title %></h3>
   <p><%= @question.content %></p>
   <p><% @question.score %></p>
   <%= erb :'questions/_vote_form', layout: false, locals: { post_type: "questions", post_id: @question.id } %>

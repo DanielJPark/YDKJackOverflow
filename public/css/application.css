@@ -4,6 +4,12 @@ padding : 0;
 text-align : center;
 }
 
+h1 {
+  font-family: 'Patua One', cursive;
+  font-size: 70px;
+  color: #ff6666;
+}
+
 header {
   margin-bottom: 10px;
 }
@@ -26,6 +32,18 @@ header h2 {
   margin-bottom: 0px;
   font-family: 'Pacifico', cursive;
 
+}
+
+img {
+  width: 100%;
+}
+
+#categories li {
+  text-decoration: none;
+  list-style: none;
+  display: block;
+  width: 30%;
+  float: left;
 }
 
 nav {
@@ -67,7 +85,18 @@ width : 594px;
   display: block;
 }
 
+#categories {
+  position: absolute;
+  text-align: center;
+  margin-top: 100px;
+  width: 100%;
+}
+
 @media (max-width: 600px) {
+  h1 {
+    font-size: 40px;
+  }
+
   header h1 {
 	  font-size: 40px;
     line-height: 1em;
@@ -83,11 +112,18 @@ width : 594px;
     margin-left: 20px;
     margin-top: 10px;
   }
+
   .page-wrapper {
     width: 380px;
   }
+
   #box {
     margin-top: -20px;
+  }
+
+  #categories li {
+  width: 40%;
+  float: left;
   }
   }
 }

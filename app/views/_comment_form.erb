@@ -1,0 +1,7 @@
+<form action="/<%= post_type %>/<%= post_id %>/comments" method="POST">
+  <input name="comment[user_id]", type="hidden", value="<%= current_user %>">
+   <fieldset>
+     <input name="comment[content]" type="text" placeholder="enter comment here">
+     <input type="submit" value="submit">
+   </fieldset>
+</form>
