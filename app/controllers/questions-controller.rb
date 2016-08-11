@@ -24,3 +24,19 @@ get '/questions/:id/comments/new' do
   @post_type = "questions"
   erb :'questions/newComment'
 end
+
+post '/questions/:id/comments' do
+  new_comment = Comment.new(params[:comment])
+  new_comment.user = current_user
+  new_comment.post_type = "Question"
+  new_comment.post_id = params[:id]
+  new_comment.save
+
+  @errors = new_comment.errors.full_messages
+
+  erb :'questions/newComment' if @errors.length != 0
+
+  q_id = Question.find(params[:id]).question.id
+
+  redirect '/questions/:id'
+end
