@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Pacifico|Patua+One" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Patua+One|Open+Sans" rel="stylesheet">  
 
   <link rel="stylesheet" href="/css/normalize.css">
  
@@ -25,7 +25,7 @@
         <a href="/users/new">register</a>
         <a href="/users/login">login</a>
         <% else %>
-        <a href="/users/show/<%= session[:user_id] %>">profile</a>
+        <a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a>
         <a href="/logout">logout</a>
         <% end %>
       </nav>

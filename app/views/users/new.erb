@@ -1,12 +1,12 @@
 <h3>Register a New Account</h3>
 
-<% if @errors %>
-  <% @errors.each do |error| %>
-  <ul>
-    <li><%= error %></li>
-  </ul>
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
   <% end %>
-<% end %>
 
 <div class="form-group">
   <form method="post" action="/users">

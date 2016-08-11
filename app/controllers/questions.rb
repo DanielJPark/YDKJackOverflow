@@ -1,6 +1,6 @@
-get '/categories/:qid/questions/new' do
+get '/categories/:cid/questions/new' do
 	if logged_in?
-		@category = Category.find(params[:qid])
+		@category = Category.find(params[:cid])
 		@all_categories = Category.order(:title)
 		erb :'/questions/new'
 	else 
@@ -36,4 +36,32 @@ end
 
 put '/questions/:id/edit' do
 
+end
+
+post '/questions/:id/vote' do
+  question = Question.find(params[:id])
+  Vote.create(value: 1, post: question, user: current_user)
+  redirect "/questions/#{params[:id]}"
+end
+
+get '/questions/:id/comments/new' do
+  @question = Question.find(params[:id])
+  @comments = @question.comments
+  @post_id = params[:id]
+  @post_type = "questions"
+  erb :'questions/newComment'
+end
+
+post '/questions/:id/comments' do
+  new_comment = Comment.new(params[:comment])
+  new_comment.user = current_user
+  new_comment.post_type = "Question"
+  new_comment.post_id = params[:id]
+  new_comment.save
+
+  @errors = new_comment.errors.full_messages
+
+  erb :'questions/newComment' if @errors.length != 0
+
+  redirect "/questions/#{params[:id]}"
 end
