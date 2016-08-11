@@ -1,0 +1,10 @@
+<div>
+  <% if selected_answer%>
+    <div class="<%= 'selected_answer' if selected_answer %>">
+      <p>This is the selected answer CHANGEME.</p>
+    </div>
+  <% end %>
+  <p><%= answer.content %></p>
+  <p><%= answer.score %></p>
+  <%= erb :'questions/_comment', layout: false, locals: { comments: answer.comments, post_type: "Answer", post_id: answer.id } %>
+</div>
