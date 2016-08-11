@@ -1,4 +1,6 @@
 class Answer < ActiveRecord::Base
+  validates :content, :user_id, :question_id, { presence: true }
+
   has_many :comments, as: :post, inverse_of: :post
   has_many :votes, as: :post, inverse_of: :post
   belongs_to :user, inverse_of: :answers

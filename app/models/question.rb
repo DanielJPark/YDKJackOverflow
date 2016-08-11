@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+  validates :title, :content, :user_id, :category_id, { presence: true }
+
   has_many :answers, inverse_of: :question
   has_many :comments, as: :post, inverse_of: :post
   has_many :votes, as: :post, foreign_key: :post_id, inverse_of: :post
