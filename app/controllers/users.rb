@@ -21,11 +21,11 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  @questions = @user.questions
-  @answers = @user.answers
+  @questions = @user.questions.order(:updated_at)
+  @answers = @user.answers.sort {|a,b| b.updated_at <=> a.updated_at }
   # @comments = @user.comments
-  @comments_on_questions = @user.comments.where(post_type: "Question")
-  @comments_on_answers = @user.comments.where(post_type: "Answer")
+  @comments_on_questions = @user.comments.where(post_type: "Question").order(:updated_at).limit(3)
+  @comments_on_answers = @user.comments.where(post_type: "Answer").order(:updated_at).limit(3)
   erb :'users/show'
 end
 
