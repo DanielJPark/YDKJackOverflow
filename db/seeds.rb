@@ -13,8 +13,8 @@ c2 = Category.create(title: "Category2" )
 c3 = Category.create(title: "Category3" )
 
 q1 = Question.create(title: "Why is this the question?", content: "This is the content for question1", user: u1 , category: c1)
-q2 = Question.create(title: "Is this Question 2?", content: "This is the content for question2", user: u3, category: c1)
-q3 = Question.create(title: "Whereis Question 3?", content: "This is the content for question3", user: u2, category: c2)
+q2 = Question.create(title: "Is this Question 2?", content: "This is the content for question2", user: u1, category: c1)
+q3 = Question.create(title: "Whereis Question 3?", content: "This is the content for question3", user: u1, category: c2)
 
 a1 = Answer.create(content: "This is Answer1", user: u2, question: q1)
 a2 = Answer.create(content: "This is Answer2", user: u2, question: q2)

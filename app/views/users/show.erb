@@ -1,11 +1,12 @@
 
 
-<%= @user.username %>
+<h1><%= @user.username %>'s Profile Page </h1>
 <br>
 <b>Questions Asked:</b>
 <br>
 <% @questions.each do |question| %>
 <%= question.title %>
+<br>
 <% end %>
 <br>
 <br>
@@ -33,3 +34,4 @@
   <br>
 <% end %>
 
+<%= @questions_class %>
