@@ -1,19 +1,29 @@
-
-
-<h3><%= @user.username %></h3>
+<h1><%= @user.username %>'s Profile Page </h1>
 <br>
-<% @user.questions.each do |question| %>
-<%= question.title %>
+<b>Questions Asked:</b>
+<br>
+<% @questions.each do |question| %>
+<a href="/questions/<%=question.id%>"><%= question.title %> - Score:<%= question.score %></a>
+<br>
 <% end %>
 <br>
-<% @user.answers.each do|answer| %>
-<%= answer.content %>
-<% end %>
+<br>
+<b>Questions Answered:</b>
+<br>
+
+<%= erb :'users/_answer', layout: false, locals: {answers: @answers} %>
+
+<br>
 <br>
 
 
-<% @user.comments.each do |comment| %>
-<%= comment.content %>
-<% end %>
+<b>3 Most Recent Comments Made on Questions:</b>
 
+<%= erb :'users/_comments_on_questions', layout: false, locals: { comments: @comments_on_questions} %>
+
+<br>
+
+<b>3 Most Recent Comments Made on Answers</b>
+
+<%= erb :'users/_comments_on_answers', layout: false, locals: { comments: @comments_on_answers} %>
 

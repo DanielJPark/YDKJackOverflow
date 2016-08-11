@@ -1,0 +1,5 @@
+
+<% answers.each do|answer| %>
+<a href="/questions/<%=answer.question.id%>"><%= answer.question.title %> - <%= answer.content %> - Score: <%= answer.score %></a>
+<br>
+<% end %>
