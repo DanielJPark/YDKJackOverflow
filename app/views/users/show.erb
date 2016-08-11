@@ -5,7 +5,7 @@
 <b>Questions Asked:</b>
 <br>
 <% @questions.each do |question| %>
-<%= question.title %>
+<a href="/questions/<%=question.id%>"><%= question.title %> - Score:<%= question.score %></a>
 <br>
 <% end %>
 <br>
@@ -13,7 +13,7 @@
 <b>Questions Answered:</b>
 <br>
 <% @answers.each do|answer| %>
-<%= answer.question.title %> - <%= answer.content %>
+<a href="/questions/<%=answer.question.id%>"><%= answer.question.title %> - <%= answer.content %> - Score: <%= answer.score %></a>
 <br>
 <% end %>
 <br>
@@ -21,15 +21,15 @@
 <b>3 Most Recent Comments Made on Questions:</b>
 <% @comments_on_questions.each do |comment| %>
     <br>
-    <%= comment.post.title %> - <%= comment.content %>
+    <a href="/questions/<%=comment.post.id%>"><%= comment.post.title %> - <%= comment.content %></a>
     <br>
 <% end %>
 <br>
 <b>3 Most Recent Comments Made on Answers</b>
 <% @comments_on_answers.each do |comment| %>
   <br>
-  <%= comment.post.question.title %>
+  <a href="/questions/<%=comment.post.question.id%>"><%= comment.post.question.title %>
   <br>
-  <%= comment.post.content %> - <%= comment.content %>
+  <%= comment.post.content %> - <%= comment.content %></a>
   <br>
 <% end %>
