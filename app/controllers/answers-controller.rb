@@ -10,7 +10,7 @@ end
 post '/answers/:id/vote' do
   answer = Answer.find(params[:id])
   Vote.create(value: 1, post: answer, user: current_user)
-  redirect "/answers/#{params[:id]}"
+  redirect "/questions/#{answer.question.id}"
 end
 
 post '/answers/:id/comments' do
