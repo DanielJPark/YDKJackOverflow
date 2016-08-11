@@ -34,7 +34,7 @@ get '/questions/:id' do
     @question.content = "[This Question was deleted by user]"
   end
   @selected_answer = @question.selected_answer
-  @answers = @question.answers.select { |a| a.id != @selected_answer.id }
+  @answers = @question.answers.select { |a| a.id != @selected_answer.try(:id) }
   erb :'/questions/show'
 end
 
