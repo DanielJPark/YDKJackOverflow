@@ -1,8 +1,9 @@
 <div class='container'>
-  <h3><%= @question.title %> - Written by <%=@question.user.username %></h2>
+
+  <h3><%= @question.title %></h3>
   <p><%= @question.content %></p>
   <p><% @question.score %></p>
-  <%= erb :'questions/_comment', layout: false, locals: { comments: @question.comments, post_type: "Question", post_id: @question.id } %>
+  <%= erb :'_comments', layout: false, locals: { comments: @question.comments, post_type: "questions", post_id: @question.id } %>
 
   <% if @question.user == current_user %>
     <form action="/questions/<%= @question.id %>" method="post">
