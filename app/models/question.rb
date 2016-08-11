@@ -7,6 +7,6 @@ class Question < ActiveRecord::Base
   belongs_to :selected_answer, class_name: "Answer"
 
   def score
-    self.votes.inject(0) { |v| v.value }
+    self.votes.inject(0) { |sum, v| sum + v.value }
   end
 end
