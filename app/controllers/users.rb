@@ -1,11 +1,13 @@
 get '/users/new' do
-	erb :'users/new'
+  erb :'users/new'
 end
 
 post '/users' do
-	@user = User.new(params[:user])
-	if @user.save
-		sessions[:user_id] = @user.id
+  @user = User.new(params[:user])
+  if @user.save
+    session[:user_id] = @user.id
+    session[:email] = @user.email
+    session[:username] = @user.username
     redirect "/"
   else
     erb :'users/new'
@@ -13,15 +15,16 @@ post '/users' do
 end
 
 get '/logout' do
-  sessions[:user_id] = nil 
+  session[:user_id] = nil
   redirect '/'
 end
 
-get '/users/login' do 
+get '/users/login' do
+  @email = session[:username]
   erb :'users/login'
-end 
+end
 
-post '/users/login' do 
+post '/users/login' do
   @user = User.find_by(email: params[:email])
   if @user
     if @user.authenticate(params[:password])
@@ -30,8 +33,8 @@ post '/users/login' do
     else
       erb :'users/login'
     end
-  else 
+  else
     @errors = "Incorrect Username / Password"
     erb :'users/login'
   end
-end 
+end
