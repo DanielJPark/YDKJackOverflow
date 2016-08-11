@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Pacifico|Patua+One" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Patua+One|Open+Sans" rel="stylesheet">  
 
   <link rel="stylesheet" href="/css/normalize.css">
  
   <link rel="stylesheet" href="/css/application.css">
+
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -15,17 +17,18 @@
 <div class = "page-wrapper">
 <body>
   <header>
+    <a href= '/'>
       <h2>you don't know</h2>
       <h1>Jack Overflow</h1>
         <div id = "box">
         </div>
+       </a>
       <nav>
-        <a href="/">home</a>
         <% unless logged_in? %>
         <a href="/users/new">register</a>
         <a href="/users/login">login</a>
         <% else %>
-        <a href="/users/show/<%= session[:user_id] %>">profile</a>
+        <a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a>
         <a href="/logout">logout</a>
         <% end %>
       </nav>
