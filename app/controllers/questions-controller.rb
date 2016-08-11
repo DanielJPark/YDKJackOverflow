@@ -1,5 +1,18 @@
-get '/questions/new' do
+get '/categories/:qid/questions/new' do
+	if logged_in?
+		@category_id = params[:qid]
+		erb :'questions/new'
+	else 
+		redirect 'users/login'
+	end
+end
 
+get '/questions/new' do
+	if logged_in?
+		erb :'questions/new'
+	else 
+		redirect 'users/login'
+	end
 end
 
 post '/questions' do
