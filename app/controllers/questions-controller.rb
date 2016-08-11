@@ -26,7 +26,6 @@ get '/questions/:id/comments/new' do
 end
 
 post '/questions/:id/comments' do
-  p "arrived"
   new_comment = Comment.new(params[:comment])
   new_comment.user = current_user
   new_comment.post_type = "Question"
