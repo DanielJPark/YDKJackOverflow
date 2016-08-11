@@ -1,6 +1,7 @@
 <div class='container'>
   <h3><%= @question.title %></h2>
   <p><%= @question.content %></p>
+  <p><% @question.score %></p>
   <h2><% @answers.count %> Answers</h2>
   <%= erb :'questions/_answer', layout: false, locals: { answer: @selected_answer, selected_answer: true } if @selected_answer %>
   <% (@answers).each do |answer| %>

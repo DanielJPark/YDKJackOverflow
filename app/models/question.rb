@@ -5,4 +5,8 @@ class Question < ActiveRecord::Base
   belongs_to :user, inverse_of: :questions
   belongs_to :category, inverse_of: :questions
   has_one :selected_answer, class_name: "Answer"
+
+  def score
+    self.votes.inject(0) { |v| v.value }
+  end
 end
