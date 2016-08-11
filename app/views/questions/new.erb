@@ -1,0 +1,45 @@
+<h2>Ask a new question 
+	<% if @category %>
+		in <%= @category.title %>
+	<% end %> 
+</h2>
+
+<div  class="form-group">
+
+	<form id="new-question-form" method="post" action="/questions">
+
+		<label for="category_select">Category:</label>
+		<select id="category_select" name="question[category_id]" class="form-control">
+
+			<% @all_categories.each do |cat| %>
+				<% if @category && @category == cat %>
+					<option selected 
+				<% else %>
+					<option 
+				<% end %> 
+
+				value= <%= cat.id %> >
+					<%= cat.title %> </option>
+
+			<% end %>
+
+	</select>
+
+	<label for="question_input">Question title:</label>
+	<input id="question_input" name="question[title]" type="text" 
+	placeholder="briefly state your question">
+
+	<label for="question_detail_input">Question detail:</label>
+	<textarea id="question_detail_input" class="form-control" 
+	name="question[content]" rows="6"
+	placeholder="explain the details of your question here"></textarea>
+
+	<input type="hidden" name="question[user_id]" 
+		value="<%= session[:user_id] %>">
+
+	<input type="submit" value="Ask it" class="btn btn-default">
+
+</form>
+</div>
+
+

@@ -7,6 +7,12 @@ get '/answers/:id/comments/new' do
   erb :'answers/newComment'
 end
 
+post '/answers/:id/vote' do
+  answer = Answer.find(params[:id])
+  Vote.create(value: 1, post: answer, user: current_user)
+  redirect "/answers/#{params[:id]}"
+end
+
 post '/answers/:id/comments' do
   new_comment = Comment.new(params[:comment])
   new_comment.user = current_user
