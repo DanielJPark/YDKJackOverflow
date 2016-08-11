@@ -4,8 +4,7 @@
   <span><%= @errors %></span>
 <% end %>
 
-<form class="form-group">
-<form method="post" action="/users/login">
+<form class="form-group" method="post" action="/users/login">
   <label for="email">Email:</label>
   <input type="email" name="email" value="<%= @email %>">
   <label for="password">Password:</label>
