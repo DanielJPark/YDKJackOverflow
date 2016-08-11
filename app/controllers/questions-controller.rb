@@ -16,3 +16,7 @@ end
 put '/questions/:id/edit' do
 
 end
+
+get '/questions/:id/comments/new' do
+  erb :'questions/newComment'
+end
