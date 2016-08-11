@@ -23,9 +23,7 @@ end
 get '/users/:id' do
   @user = User.find(params[:id])
   @questions = @user.questions.sort {|a,b| b.score <=> a.score }[0..2]
-  @questions_class = @questions.class
   @answers = @user.answers.sort {|a,b| b.score <=> a.score }[0..2]
-  # @comments = @user.comments
   @comments_on_questions = @user.comments.where(post_type: "Question").order(:updated_at).limit(3)
   @comments_on_answers = @user.comments.where(post_type: "Answer").order(:updated_at).limit(3)
   erb :'users/show'
