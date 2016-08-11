@@ -1,1 +1,9 @@
 <p><%= comment.content %> - <a href='/users/<%= user.id %>'><%= user.username %></a></p>
+
+
+<% if user == current_user %>
+    <form action="/questions/<%= @question.id %>/comments/<%= comment.id %>" method="post">
+      <input type="submit" value="DELETE YOUR COMMENT">
+      <input name="_method" type="hidden" value="DELETE">
+    </form>
+  <% end %>

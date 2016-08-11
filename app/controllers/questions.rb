@@ -89,3 +89,9 @@ post '/questions/:id/comments' do
 
   redirect "/questions/#{params[:id]}"
 end
+
+delete '/questions/:id/comments/:comment_id' do
+  @comment = Comment.find_by(id: params[:comment_id])
+  @comment.destroy
+  redirect "/questions/#{params[:id]}"
+end
