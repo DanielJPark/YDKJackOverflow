@@ -12,9 +12,19 @@ require 'shoulda-matchers'
 require 'rack/test'
 require 'capybara'
 require 'capybara/rspec'
+require 'rspec'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    # Choose a test framework:
+    with.test_framework :rspec
+    with.library :active_record
+    with.library :active_model
+  end
 end
 
 def app
