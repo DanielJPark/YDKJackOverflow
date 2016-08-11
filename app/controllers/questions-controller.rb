@@ -18,5 +18,9 @@ put '/questions/:id/edit' do
 end
 
 get '/questions/:id/comments/new' do
+  @question = Question.find(params[:id])
+  @comments = @question.comments
+  @post_id = params[:id]
+  @post_type = "questions"
   erb :'questions/newComment'
 end
