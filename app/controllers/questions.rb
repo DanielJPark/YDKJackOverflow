@@ -1,6 +1,6 @@
 get '/categories/:qid/questions/new' do
 	if logged_in?
-		@category_id = params[:qid]
+		@category = Category.find(params[:qid])
 		erb :'questions/new'
 	else 
 		redirect 'users/login'
