@@ -14,21 +14,19 @@ post '/users' do
   end
 end
 
-get '/users/:id' do
-	@user = User.find(params[:id])
-	erb :'users/show'
+get '/users/login' do
+  @email = session[:username]
+  erb :'users/login'
 end
 
-
+get '/users/:id' do
+  @user = User.find(params[:id])
+  erb :'users/show'
+end
 
 get '/logout' do
   session[:user_id] = nil
   redirect '/'
-end
-
-get '/users/login' do
-  @email = session[:username]
-  erb :'users/login'
 end
 
 post '/users/login' do
@@ -36,7 +34,7 @@ post '/users/login' do
   if @user
     if @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect "/users/show/#{session[:user_id]}"
+      redirect "/users/#{session[:user_id]}"
     else
       erb :'users/login'
     end
