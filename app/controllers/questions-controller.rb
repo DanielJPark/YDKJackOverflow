@@ -17,6 +17,12 @@ put '/questions/:id/edit' do
 
 end
 
+post '/questions/:id/vote' do
+  question = Question.find(params[:id])
+  Vote.create(value: 1, post: question, user: current_user)
+  redirect "/questions/#{params[:id]}"
+end
+
 get '/questions/:id/comments/new' do
   @question = Question.find(params[:id])
   @comments = @question.comments

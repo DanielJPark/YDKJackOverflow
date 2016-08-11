@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Pacifico|Patua+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Patua+One|Open+Sans" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/normalize.css">
 
@@ -14,24 +14,23 @@
 </head>
 <div class = "page-wrapper">
 <body>
-
-<header>
-<h2>you don't know</h2>
-<h1>Jack Overflow</h1>
-  <a href="/">home</a>
-   <div id = "box">
+  <header>
+    <a href= '/'>
+      <h2>you don't know</h2>
+      <h1>Jack Overflow</h1>
+        <div id = "box">
         </div>
+       </a>
       <nav>
-    <% unless logged_in? %>
-      <a href="/users/new">register</a>
-      <a href="/users/login">login</a>
-    <% else %>
-      <a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a>
-      <a href="/logout">logout</a>
-    <% end %>
-    </nav>
-</header>
-
+        <% unless logged_in? %>
+        <a href="/users/new">register</a>
+        <a href="/users/login">login</a>
+        <% else %>
+        <a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a>
+        <a href="/logout">logout</a>
+        <% end %>
+      </nav>
+  </header>
   <%= yield %>
 </body>
 </div>
