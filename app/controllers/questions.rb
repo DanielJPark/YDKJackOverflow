@@ -34,18 +34,19 @@ end
 
 get '/questions/:id' do
 	@question = Question.find(params[:id])
-	if @question.user == User.find_by(username: "Anonymous")
-		@question.title = "[This Question was deleted by user]"
-		@question.content = "[This Question was deleted by user]"
-	end
-	if @question.selected_answer
-		@selected_answer = @question.selected_answer
-		@answers = @question.answers.select { |a| a.id != @selected_answer.id }
-	else
-		@selected_answer = nil
-		@answers = @question.answers
-	end
-	erb :'/questions/show'
+    if @question.user == User.find_by(username: "Anonymous")
+		  @question.title = "[This Question was deleted by user]"
+		  @question.content = "[This Question was deleted by user]"
+    end
+
+    if @question.selected_answer
+		  @selected_answer = @question.selected_answer
+		  @answers = @question.answers.select { |a| a.id != @selected_answer.id }
+    else
+      @selected_answer = nil
+      @answers = @question.answers
+    end
+  erb :'/questions/show'
 end
 
 put '/questions/:id/edit' do
