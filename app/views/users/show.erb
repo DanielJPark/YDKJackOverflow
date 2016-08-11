@@ -12,24 +12,20 @@
 <br>
 <b>Questions Answered:</b>
 <br>
-<% @answers.each do|answer| %>
-<a href="/questions/<%=answer.question.id%>"><%= answer.question.title %> - <%= answer.content %> - Score: <%= answer.score %></a>
+
+<%= erb :'users/_answer', layout: false, locals: {answers: @answers} %>
+
 <br>
-<% end %>
 <br>
-<br>
+
+
 <b>3 Most Recent Comments Made on Questions:</b>
-<% @comments_on_questions.each do |comment| %>
-    <br>
-    <a href="/questions/<%=comment.post.id%>"><%= comment.post.title %> - <%= comment.content %></a>
-    <br>
-<% end %>
+
+<%= erb :'users/_comments_on_questions', layout: false, locals: { comments: @comments_on_questions} %>
+
 <br>
+
 <b>3 Most Recent Comments Made on Answers</b>
-<% @comments_on_answers.each do |comment| %>
-  <br>
-  <a href="/questions/<%=comment.post.question.id%>"><%= comment.post.question.title %>
-  <br>
-  <%= comment.post.content %> - <%= comment.content %></a>
-  <br>
-<% end %>
+
+<%= erb :'users/_comments_on_answers', layout: false, locals: { comments: @comments_on_answers} %>
+

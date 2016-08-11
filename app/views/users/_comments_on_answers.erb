@@ -1,0 +1,7 @@
+<% comments.each do |comment| %>
+  <br>
+  <a href="/questions/<%=comment.post.question.id%>"><%= comment.post.question.title %>
+  <br>
+  <%= comment.post.content %> - <%= comment.content %></a>
+  <br>
+<% end %>
