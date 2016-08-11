@@ -22,3 +22,17 @@ post '/answers/:id/comments' do
 
   redirect "/questions/#{q_id}"
 end
+
+
+delete '/answers/:id' do
+  @answer = Answer.find_by(id: params[:id])
+  question_id = @answer.question.id
+  if @answer.comments.count == 0
+    @answer.destroy
+  else
+    @answer.user = User.find_or_create_by(username: "Anonymous", email: "anonymous@anonymous.com", hashed_password: "password")
+    @answer.save
+  end
+  redirect "/questions/#{question_id}"
+
+end
