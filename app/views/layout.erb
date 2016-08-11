@@ -27,7 +27,7 @@
       <a href="/users/new">register</a>
       <a href="/users/login">login</a>
     <% else %>
-      <a href="/user/show/<%= session[:user_id] %>">profile</a>
+      <a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a>
       <a href="/logout">logout</a>
     <% end %>
 </header>

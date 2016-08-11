@@ -21,6 +21,11 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
+  @questions = @user.questions
+  @answers = @user.answers
+  # @comments = @user.comments
+  @comments_on_questions = @user.comments.where(post_type: "Question")
+  @comments_on_answers = @user.comments.where(post_type: "Answer")
   erb :'users/show'
 end
 

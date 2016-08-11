@@ -18,4 +18,4 @@ a3 = Answer.create(id: 3, content: "This is Answer3", user: u1, question: q3)
 
 Comment.create(id: 1, content: "This is a comment1", user: u3, post: q1)
 Comment.create(id: 2, content: "This is a comment2", user: u1, post: q2)
-Comment.create(id: 3, content: "This is a comment3", user: u2, post: a3)
+Comment.create(id: 3, content: "This is a comment3", user: u1, post: a3)

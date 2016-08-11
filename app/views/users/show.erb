@@ -2,18 +2,36 @@
 
 <%= @user.username %>
 <br>
-<% @user.questions.each do |question| %>
+<b><ul>Questions Asked:</ul></b>
+<br>
+<% @questions.each do |question| %>
 <%= question.title %>
 <% end %>
 <br>
-<% @user.answers.each do|answer| %>
-<%= answer.content %>
+<b><ul>Questions Answered:</ul></b>
+<br>
+<% @answers.each do|answer| %>
+<%= answer.question.title %> - <%= answer.content %>
 <% end %>
 <br>
 
+<br>
 
-<% @user.comments.each do |comment| %>
-<%= comment.content %>
+<b><ul>Comments Made on Questions:</ul></b>
+<% @comments_on_questions.each do |comment| %>
+    <br>
+    <%= comment.post.title %>
+    <%= comment.content %>
+    <br>
 <% end %>
 
+
+<b><ul>Comments Made on Answers</ul></b>
+
+<% @coments_on_answers.each do |comment| %>
+  <br>
+  <%= comment.post.title %>
+  <%= comment.post.content %>
+  <br>
+<% end %>
 
