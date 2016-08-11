@@ -1,9 +1,8 @@
 <div id="comments">
-  <%@comments each do |comment|%>
-    <p><%= comment.content %></p>
-    <p><%= comment.user %></p>
+  <%comments.each do |comment|%>
+    <%= erb :_comment, layout: false, locals: { comment: comment, user: comment.user } %>
     <% post_type = comment.post_type %>
     <% post_id = comment.post_id %>
   <% end %>
-  <a href="/<%= post_type %>/<%= post_id %>/comment">Comment</a>
+  <a href="/<%= post_type %>/<%= post_id %>/comment">add comment</a>
 </div>
