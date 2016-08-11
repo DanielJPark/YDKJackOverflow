@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
 
 
   include BCrypt
-	def password
-  	@password ||= BCrypt::Password.new(hashed_password)
+  def password
+    @password ||= BCrypt::Password.new(hashed_password)
   end
 
   def password=(new_password)
