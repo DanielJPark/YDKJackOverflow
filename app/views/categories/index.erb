@@ -1,0 +1,11 @@
+<div id= categories>
+<h1> Categories </h1>
+<ul>
+  <% @categories.each do |category| %>
+    <li><a href="/categories/<%= category.id %>"><%= category.title %></a></li>
+  <% end %>
+</ul>
+</div>
+
+<img src="https://s9.postimg.org/69v17wujz/head_image.jpg"> 
+

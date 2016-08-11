@@ -38,9 +38,12 @@ img {
   width: 100%;
 }
 
-li {
+#categories li {
   text-decoration: none;
   list-style: none;
+  display: block;
+  width: 30%;
+  float: left;
 }
 
 nav {
@@ -118,5 +121,9 @@ width : 594px;
     margin-top: -20px;
   }
 
+  #categories li {
+  width: 40%;
+  float: left;
+  }
   }
 }
