@@ -5,15 +5,16 @@ end
 post '/users' do
 	@user = User.new(params[:user])
 	if @user.save
-		sessions[:user_id] = @user.id
+		session[:user_id] = @user.id
     redirect "/"
   else
+    @errors = @user.errors.full_messages
     erb :'users/new'
   end
 end
 
 get '/logout' do
-  sessions[:user_id] = nil 
+  session[:user_id] = nil 
   redirect '/'
 end
 
@@ -28,6 +29,7 @@ post '/users/login' do
       session[:user_id] = @user.id
       redirect "/users/show/#{session[:user_id]}"
     else
+      @errors = "Incorrect Username / Password"
       erb :'users/login'
     end
   else 
