@@ -26,6 +26,7 @@ get '/questions/:id/comments/new' do
 end
 
 post '/questions/:id/comments' do
+  p "arrived"
   new_comment = Comment.new(params[:comment])
   new_comment.user = current_user
   new_comment.post_type = "Question"
@@ -36,7 +37,5 @@ post '/questions/:id/comments' do
 
   erb :'questions/newComment' if @errors.length != 0
 
-  q_id = Question.find(params[:id]).question.id
-
-  redirect '/questions/:id'
+  redirect "/questions/#{params[:id]}"
 end

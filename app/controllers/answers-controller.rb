@@ -20,5 +20,5 @@ post '/answers/:id/comments' do
 
   q_id = Answer.find(params[:id]).question.id
 
-  redirect '/questions/:id'
+  redirect "/questions/#{q_id}"
 end
