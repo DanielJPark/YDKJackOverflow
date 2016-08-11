@@ -2,6 +2,7 @@
   <h3><%= @question.title %></h2>
   <p><%= @question.content %></p>
   <p><% @question.score %></p>
+  <%= erb :'questions/_vote_form', layout: false, locals: { post_type: "questions", post_id: @question.id } %>
   <%= erb :'questions/_comment', layout: false, locals: { comments: @question.comments, post_type: "Question", post_id: @question.id } %>
   <h2><% @answers.count %> Answers</h2>
   <%= erb :'questions/_answer', layout: false, locals: { answer: @selected_answer, selected_answer: true } if @selected_answer %>
