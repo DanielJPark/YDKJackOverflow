@@ -198,9 +198,9 @@ width : 594px;
   font-family: 'Patua One', cursive;
 }
 
-.comment {
+/*.comment {
   border: dotted 1px black;
-}
+}*/
 
 .score {
   color: red;
