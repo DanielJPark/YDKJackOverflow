@@ -1,0 +1,11 @@
+<% answers.each do |answer| %>
+  <div class="question">
+    <%= erb :'_question_title', layout: false, locals: { question: answer.question } %>
+    <div class="answer user_highlight">
+      <p class="score"><%= answer.score %></p>
+      <a href="/questions/<%= answer.question.id %>">
+        <%= erb :'_answer_content', layout: false, locals: { answer: answer } %>
+      </a>
+    </div>
+  </div>
+<% end %>
