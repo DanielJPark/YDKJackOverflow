@@ -1,0 +1,7 @@
+<h4 class="post_title">
+  <% if question.user.username == "Anonymous" %>
+    [This Question was deleted by user]
+  <% else %>
+    <%= question.title %>
+  <% end %>
+</h4>
