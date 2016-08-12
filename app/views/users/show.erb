@@ -20,14 +20,14 @@
 
   <section>
     <% if @comments_on_questions != [] %>
-    <h3>3 Most Recent Comments Made on Questions:</h3>
+    <h3>Recent Comments on Questions:</h3>
     <%= erb :'users/_comments_on_questions', layout: false, locals: { comments: @comments_on_questions } %>
     <% end %>
   </section>
 
   <section>
     <% if @comments_on_answers != [] %>
-    <h3>3 Most Recent Comments Made on Answers:</h3>
+    <h3>Recent Comments on Answers:</h3>
     <%= erb :'users/_comments_on_answers', layout: false, locals: { comments: @comments_on_answers } %>
     <% end %>
   </section>
