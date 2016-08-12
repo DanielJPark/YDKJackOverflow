@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <link href="https://fonts.googleapis.com/css?family=Pacifico|Patua+One|Open+Sans" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/normalize.css">
@@ -28,6 +29,11 @@
         <% else %>
         <a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a>
         <a href="/logout">logout</a>
+        <% if @category && @category.id %>
+        <a style="float:right" href="/categories/<%= @category.id %>/questions/new"> ask a question in <%= @category.title.downcase %> </a>
+        <% else %>
+        <a style= "float:right" href="/questions/new"> ask a question</a>
+        <% end %>
         <% end %>
       </nav>
   </header>

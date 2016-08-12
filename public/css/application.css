@@ -2,16 +2,26 @@ a {
   text-decoration: none;
 }
 
-h1 {
-  font-family: 'Patua One', cursive;
-  font-size: 70px;
-  color: #ff6666;
-}
 body {
 margin : 0;
 padding : 0;
 text-align : center;
 font-family: "Open Sans";;
+}
+
+h1 {
+  font-family: 'Patua One', cursive;
+  font-size: 70px;
+  color: #ff6666;
+}
+
+h2 {
+  color: #31A9B8;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  font-family: 'Patua One', cursive;
 }
 
 h3 {
@@ -77,6 +87,19 @@ nav a:hover {
     background-color: #111;
 }
 
+ul{
+
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+ul li {
+  margin-left: 0em;
+  float: left;
+  width: 50%;
+}
+
 .page-wrapper {
 position : relative;
 margin : 0 auto;
@@ -101,6 +124,29 @@ width : 594px;
   width: 100%;
 }
 
+#categories ul {
+  margin-left: 2em;
+}
+
+.vote-form {
+  
+}
+
+.upvote{
+ 
+
+}
+.downvote{
+
+}
+
+.comments {
+  border-top: solid 2px gray;
+  border-bottom: solid 2px gray;
+}
+.comments p { font-style: italic;
+
+}
 .form-group{
     max-width: 500px;
     padding: 10px 20px;
@@ -150,6 +196,10 @@ width : 594px;
 .form-group input[type="button"]:hover
 {
     background: gray;
+}
+
+.page-titles {
+  border-left: solid 10px #31A9B8;
 }
 
 @media (max-width: 600px) {
