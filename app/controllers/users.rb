@@ -3,19 +3,15 @@ get '/users/new' do
 end
 
 post '/users' do
-  if logged_in?
-    @user = User.new(params[:user])
-    if @user.save
-      session[:user_id] = @user.id
-      session[:email] = @user.email
-      session[:username] = @user.username
-      redirect "/"
-    else
-      @errors = @user.errors.full_messages
-      erb :'users/new'
-    end
+  @user = User.new(params[:user])
+  if @user.save
+    session[:user_id] = @user.id
+    session[:email] = @user.email
+    session[:username] = @user.username
+    redirect "/"
   else
-    redirect 'users/login'
+    @errors = @user.errors.full_messages
+    erb :'users/new'
   end
 end
 
