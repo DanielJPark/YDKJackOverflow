@@ -2,13 +2,13 @@
 
   <h3><%= @question.title %></h3>
   <p><%= @question.content %></p>
-  <p><% @question.score %></p>
+  <p><%= @question.score %></p>
   <%= erb :'questions/_vote_form', layout: false, locals: { post_type: "questions", post_id: @question.id } %>
   <%= erb :'_comments', layout: false, locals: { comments: @question.comments, post_type: "questions", post_id: @question.id } %>
 
   <% if @question.user == current_user %>
     <form action="/questions/<%= @question.id %>" method="post">
-      <input type="submit" value="DELETE">
+      <input type="submit" value="DELETE YOUR QUESTION">
       <input name="_method" type="hidden" value="DELETE">
     </form>
   <% end %>
