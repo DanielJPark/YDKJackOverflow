@@ -103,7 +103,8 @@ ul li {
 }
 
 .page-wrapper {
-width : 620px;
+min-width : 620px;
+max-width: 720px;
 position : relative;
 margin : 0 auto;
 padding : 0 3px;
@@ -226,9 +227,11 @@ text-align : left;
 
 .vote_box {
   /*border: solid 1px black;*/
-  width: 15%;
+  display: inline-block;
+  max-width: 2%;
+  min-width: 12px;
   text-align: center;
-  background-color: lightpink;
+  background-color: lightgrey;
   margin: 10px 0px;
   padding: 10px;
 }

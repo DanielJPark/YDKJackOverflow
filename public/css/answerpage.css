@@ -1,0 +1,40 @@
+.question-container {
+    border: 1px dotted lightgrey;
+    margin: 5px 0px 30px;
+    padding: 0px 10px;
+}
+
+div.answer-content {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+}
+
+p.comment-text {
+    margin: 0px 10px 0px 100px;
+    margin-bottom: 2px solid gray;
+}
+
+p.comment-text span.actual-comment {
+    font-style: normal;
+}
+
+div.question-container div.comments {
+    border: none;
+    clear: both;
+}
+
+div.question-container div.comments div.comment {
+    border-top: 2px solid lightgrey;
+    border-bottom: 2px solid lightgrey;
+}
+
+div.user-box {
+    display: inline-block;
+    float: right;
+    text-align: right;
+    padding: 10px;
+    max-width: 150px;
+    background: lightgrey;
+    margin-bottom: 10px;
+}

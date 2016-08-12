@@ -1,32 +1,48 @@
 <div class = "page-titles">
   <h2><%= @question.title %></h2>
 </div>
+
+<div class="question-container">
   <%= erb :'questions/_vote_form', layout: false, locals: { post_type: "questions", post_id: @question.id } %>
- <p><%= @question.content %></p>
+  <div class="answer-content">
+    <p><%= @question.content %></p>
+  </div>
 
-<div class= "comments">
-  <%= erb :'_comments', layout: false, locals: { comments: @question.comments, post_type: "questions", post_id: @question.id } %>
-</div>
+  <div class="user-box">
+    <span class="posted-by">posted by</span>
+    <a href="/users/<%= current_user.id %>"> <%= current_user.username %></a>
+    on <span class="posted-at"> <%= @question.created_at.to_s[0..9] %></span>
 
-  <% if @question.user == current_user %>
+
+    <% if @question.user == current_user %>
     <form action="/questions/<%= @question.id %>" method="post">
-      <input type="submit" value="DELETE YOUR QUESTION">
+      <input type="submit" value="delete">
       <input name="_method" type="hidden" value="DELETE">
     </form>
-  <% end %>
+    <% end %>
 
 
-  <%# ---ANSWER QUESTION BUTTON & FORM--- %>
-  <% if logged_in? %>
-  
-    <button id="answer_question_btn" class="btn btn-default">Answer this question</button>
+  </div>
 
-    <div id="question_answer_form_container">
-      <div class="form-group">
-      <form id="new_answer" action="/questions/<%= @question.id %>/answers" 
-        method="post">
+  <div class= "comments">
+    <%= erb :'_comments', layout: false, locals: { comments: @question.comments, post_type: "questions", post_id: @question.id } %>
+  </div>
 
-        <label for="answer_content">
+</div>
+
+
+
+<%# ---ANSWER QUESTION BUTTON & FORM--- %>
+<% if logged_in? %>
+
+<button id="answer_question_btn" class="btn btn-default">Answer this question</button>
+
+<div id="question_answer_form_container">
+  <div class="form-group">
+    <form id="new_answer" action="/questions/<%= @question.id %>/answers" 
+      method="post">
+
+      <label for="answer_content">
         <textarea id="answer_content" class="form-control" name="answer[content]" rows="6" placeholder="type your answer here" value="">         
         </textarea>
 
@@ -34,18 +50,18 @@
         <input type="hidden" name="answer[question_id]" value="<%= @question.id %>">
 
         <input type="submit" value="Submit Answer">
-      
+
       </form>
-      </div>
     </div>
+  </div>
 
   <% end %>
 
   <h2><% @answers.count %> Answers</h2>
-</div>
+
   <%= erb :'questions/_answer', layout: false, locals: { answer: @selected_answer, selected_answer: true } if @selected_answer %>
   <% (@answers).each do |answer| %>
-    <%= erb :'questions/_answer', layout: false, locals: { answer: answer, selected_answer: false } %>
+  <%= erb :'questions/_answer', layout: false, locals: { answer: answer, selected_answer: false } %>
   <% end %>
 </br>
 
