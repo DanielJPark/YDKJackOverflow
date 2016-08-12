@@ -2,11 +2,12 @@
 <div class="container">
   <section>
     <h3>Questions Asked:</h3>
-    <div class="user_highlight">
       <% @questions.each do |question| %>
-        <%= erb :'_question_title', layout: false, locals: { question: question } %>
+        <div class="question user_highlight">
+          <%= erb :'_question_title', layout: false, locals: { question: question } %>
+        </div>
       <% end %>
-    </div>
+
   </section>
 
   <section>
