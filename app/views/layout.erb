@@ -30,7 +30,7 @@
         <a href="/users/<%= session[:user_id] %>"><%= current_user.username %></a>
         <a href="/logout">logout</a>
         <% if @category && @category.id %>
-        <a style="float:right" href="/categories/<%= @category.id %>/questions/new"> ask a question in <%= @category.title.downcase %> </a>
+        <a style="float:right" href="/categories/<%= @category.id %>/questions/new"> ask a question in category: <%= @category.title.downcase %> </a>
         <% else %>
         <a style= "float:right" href="/questions/new"> ask a question</a>
         <% end %>

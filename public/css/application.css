@@ -16,11 +16,10 @@ h1 {
 }
 
 h2 {
-  color: #31A9B8;
-  font-size: 30px;
-  font-weight: 500;
+  color: #4d4d4d;
+  font-size: 25px;
   margin-bottom: 0px;
-  margin-left: 5px;
+  margin-left: 0px;
   font-family: 'Patua One', cursive;
 }
 
@@ -190,6 +189,17 @@ width : 594px;
   border-left: solid 10px #31A9B8;
 }
 
+.page-titles h2 {
+  padding-left: 10px;
+  color: #31A9B8;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  font-family: 'Patua One', cursive;
+}
+
+
 @media (max-width: 600px) {
   h1 {
     font-size: 40px;
@@ -211,6 +221,10 @@ width : 594px;
     margin-left: 20px;
     margin-top: 10px;
   }
+
+/*  nav a{
+    float: none;
+  }*/
 
   .page-wrapper {
     width: 380px;
