@@ -28,21 +28,27 @@
     <%= erb :'_comments', layout: false, locals: { comments: @question.comments, post_type: "questions", post_id: @question.id } %>
   </div>
 
-</div>
 
 
 
-  <%= erb :'/questions/_answer_button' %>
+
+  
 
   <h2>Answers</h2>
 
+<%= erb :'/questions/_answer_button' %>
 <div class="answers-container">
+
   <%= erb :'questions/_answer', layout: false, locals: { answer: @selected_answer, selected_answer: true } if @selected_answer %>
   <% (@answers).each do |answer| %>
   <div class="answer-container">
     <%= erb :'questions/_answer', layout: false, locals: { answer: answer, selected_answer: false } %>
   </div>
   <% end %>
+  </div>
+  <%= erb :'/questions/_answer_button' %>
 </div>
 
-<%= erb :'/questions/_answer_button' %>
+
+
+</div>
