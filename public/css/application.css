@@ -207,11 +207,13 @@ width : 594px;
 }
 
 .question {
-  border: dotted 1px blue;
+  border-left: solid 2px black;
+  padding: 10px;
 }
 
 .answer {
-  border: dotted 1px green;
+  border-top: solid 1px black;
+  padding: 0px 10px;
 }
 
 .user_highlight {
