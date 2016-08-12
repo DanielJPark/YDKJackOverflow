@@ -1,6 +1,6 @@
 <% comments.each do |comment| %>
   <div class="question">
-    <h4 class="post_title"><%= comment.post.title %></h4>
+    <%= erb :'_question_title', layout: false, locals: { question: comment.post } %>
     <div class="user_highlight">
       <%= erb :'_comment_without_attribution', layout: false, locals: { comment: comment, question_id: comment.post.id } %>
     </div>
