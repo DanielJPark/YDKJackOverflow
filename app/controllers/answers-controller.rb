@@ -16,11 +16,21 @@ get '/answers/:id/comments/new' do
   erb :'answers/newComment'
 end
 
-post '/answers/:id/vote' do
+post '/answers/:id/upvote' do
   if logged_in?
     answer = Answer.find(params[:id])
     Vote.create(value: 1, post: answer, user: current_user)
-    redirect "/answers/#{params[:id]}"
+    redirect "/questions/#{answer.question.id}"
+  else
+    redirect 'users/login'
+  end
+end
+
+post '/answers/:id/downvote' do
+  if logged_in?
+    answer = Answer.find(params[:id])
+    Vote.create(value: -1, post: answer, user: current_user)
+    redirect "/questions/#{answer.question.id}"
   else
     redirect 'users/login'
   end

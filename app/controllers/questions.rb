@@ -69,10 +69,20 @@ delete '/questions/:id' do
   end
 end
 
-post '/questions/:id/vote' do
+post '/questions/:id/upvote' do
   if logged_in?
     question = Question.find(params[:id])
     Vote.create(value: 1, post: question, user: current_user)
+    redirect "/questions/#{params[:id]}"
+  else
+    redirect 'users/login'
+  end
+end
+
+post '/questions/:id/downvote' do
+  if logged_in?
+    question = Question.find(params[:id])
+    Vote.create(value: -1, post: question, user: current_user)
     redirect "/questions/#{params[:id]}"
   else
     redirect 'users/login'
