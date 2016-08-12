@@ -1,17 +1,10 @@
-<div class="container">
 
-<h2> <%= @category.title %> </h2>
+<div class = "page-titles">
+  <h2> <%= @category.title %> </h2>
+</div>
 
-<% if logged_in? %>
-	<a href="/categories/<%= @category.id %>/questions/new"> 
-		<button class="button">	
-			Ask a new question in <%= @category.title %> 
-		</button> 
-	</a>
-<% end %>
-
-<h3>Questions:</h3>
-  <ul>
+<h2>click on a question to see </br> more information</h2>
+  <ul class = "content">
     <% @questions.each do |question| %>
       <li><a href="/questions/<%= question.id %>">
         <% if question.user.username == "Anonymous" %>
@@ -22,4 +15,4 @@
       </a></li>
     <% end %>
   </ul>
-</div>
+  </ul>

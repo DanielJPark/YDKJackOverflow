@@ -2,16 +2,25 @@ a {
   text-decoration: none;
 }
 
-h1 {
-  font-family: 'Patua One', cursive;
-  font-size: 70px;
-  color: #ff6666;
-}
 body {
 margin : 0;
 padding : 0;
 text-align : center;
 font-family: "Open Sans";;
+}
+
+h1 {
+  font-family: 'Patua One', cursive;
+  font-size: 70px;
+  color: #ff6666;
+}
+
+h2 {
+  color: #4d4d4d;
+  font-size: 25px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  font-family: 'Patua One', cursive;
 }
 
 h3 {
@@ -51,8 +60,11 @@ img {
   text-decoration: none;
   list-style: none;
   display: block;
-  width: 30%;
+  width: 39%;
   float: left;
+  margin-left: 30px;
+  padding: 0;
+  margin-top: -5px;
 }
 
 nav {
@@ -77,11 +89,24 @@ nav a:hover {
     background-color: #111;
 }
 
+ul{
+
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+ul li {
+  margin-left: 0em;
+  float: left;
+  width: 50%;
+}
+
 .page-wrapper {
 position : relative;
 margin : 0 auto;
 padding : 0 3px;
-width : 600px;
+width : 700px;
 text-align : left;
 width : 594px;
 }
@@ -101,6 +126,17 @@ width : 594px;
   width: 100%;
 }
 
+#categories ul {
+  margin-left: 2em;
+}
+
+.comments {
+  border-top: solid 2px gray;
+  border-bottom: solid 2px gray;
+}
+.comments p { font-style: italic;
+
+}
 .form-group{
     max-width: 500px;
     padding: 10px 20px;
@@ -110,13 +146,10 @@ width : 594px;
     border-radius: 8px;
 }
 
-.form-grouplabel {
-    display: block;
-    margin-bottom: 8px;
-}
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"],
+.form-group textarea,
 .form-group select {
     border-radius: 4px;
     font-size: 16px;
@@ -151,13 +184,19 @@ width : 594px;
     background: gray;
 }
 
-
-/*laur did this*/
-.form-group textarea {
-  width: 100%;
+.page-titles {
+  border-left: solid 10px #31A9B8;
 }
 
-/*.*/
+.page-titles h2 {
+  padding-left: 10px;
+  color: #31A9B8;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  font-family: 'Patua One', cursive;
+}
 
 .comment {
   border: dotted 1px black;
@@ -210,9 +249,10 @@ width : 594px;
   }
 
   #categories li {
-  width: 40%;
-  float: left;
-  }
+    float: none;
+    width: 100%;
+    font-size: 13px;
+    margin-left: -25px;
   }
 }
 

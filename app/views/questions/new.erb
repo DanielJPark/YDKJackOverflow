@@ -1,11 +1,13 @@
+<center>
 <h2>Ask a new question
 	<% if @category %>
 		in <%= @category.title %>
 	<% end %>
 </h2>
+</center>
+</br>
 
-<div  class="form-group">
-
+<div class="form-group">
 	<form id="new-question-form" method="post" action="/questions">
 
 		<label for="category_select">Category:</label>

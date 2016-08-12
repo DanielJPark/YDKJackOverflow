@@ -1,4 +1,3 @@
-<div class="container"
   <% if @errors %>
     <ul>
       <% @errors.each do |error| %>
@@ -6,12 +5,14 @@
       <% end %>
     </ul>
   <% end %>
-
-  <h3><%= @question.title %></h3>
+<div class = "page-titles">
+  <h2><%= @question.title %></h2>
+</div>
   <p><%= @question.content %></p>
   <p><% @question.score %></p>
+<div class = "comments">
   <% @comments.each do |comment|%>
     <%= erb :_comment, layout: false, locals: { comment: comment, user: comment.user } %>
   <% end %>
-  <%= erb :_comment_form, layout: false, locals: { post_type: @post_type, post_id: @post_id} %>
 </div>
+  <%= erb :_comment_form, layout: false, locals: { post_type: @post_type, post_id: @post_id} %>
