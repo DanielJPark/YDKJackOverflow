@@ -2,12 +2,16 @@ post '/questions/:qid/answers' do
   if !logged_in?
     redirect '/users/login'
   end
-  @answer = Answer.new(params[answer])
+  p 'YAYAYAYAYAYAYAYAYAYAYAY'
+  p params
+  @answer = Answer.new(params[:answer])
+  p @answer
   if @answer.save
+    p 'saved!'
     @question = Question.find(params[:qid])
     @question.answers << @answer
   end
-
+  redirect "/questions/#{ params[:qid] }"
 end
 
 get '/answers/:id/comments/new' do

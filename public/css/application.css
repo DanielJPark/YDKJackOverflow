@@ -152,6 +152,13 @@ width : 594px;
     background: gray;
 }
 
+/*laur did this*/
+.form-group textarea {
+  width: 100%;
+}
+
+/*.*/
+
 @media (max-width: 600px) {
   h1 {
     font-size: 40px;

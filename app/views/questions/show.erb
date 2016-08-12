@@ -25,11 +25,11 @@
         method="post">
 
         <label for="answer_content">
-        <textarea id="answer_content" class="form-control" name="question[content]" rows="6" placeholder="type your answer here">         
+        <textarea id="answer_content" class="form-control" name="answer[content]" rows="6" placeholder="type your answer here" value="">         
         </textarea>
 
-        <input type="hidden" name="question[user_id]" value="<%= %>">
-        <input type="hidden" name="question[question_id]" value="<%= %>">
+        <input type="hidden" name="answer[user_id]" value="<%= current_user.id %>">
+        <input type="hidden" name="answer[question_id]" value="<%= @question.id %>">
 
         <input type="submit" value="Submit Answer">
       

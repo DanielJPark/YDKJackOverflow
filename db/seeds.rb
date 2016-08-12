@@ -1,6 +1,6 @@
 # User.delete_all
 # Question.delete_all
-# Category.delete_all
+Category.delete_all
 # Answer.delete_all
 # Comment.delete_all
 
