@@ -1,16 +1,6 @@
-<div class="container">
-
 <h2> <%= @category.title %> </h2>
 
-<% if logged_in? %>
-	<a href="/categories/<%= @category.id %>/questions/new"> 
-		<button class="button">	
-			Ask a new question in <%= @category.title %> 
-		</button> 
-	</a>
-<% end %>
-
-<h3>Questions:</h3>
+<h2>Questions:</h2>
   <ul>
     <% @questions.each do |question| %>
       <li><a href="/questions/<%= question.id %>">
@@ -22,4 +12,3 @@
       </a></li>
     <% end %>
   </ul>
-</div>
