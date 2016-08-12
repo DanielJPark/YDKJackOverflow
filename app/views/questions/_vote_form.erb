@@ -1,6 +1,10 @@
-<div class= "vote-form">
-<form action='/<%= post_type %>/<%= post_id %>/vote' method='post'>
-  <input class="upvote" type="submit" name="upvote" value="1">
-  <input class = "downvote" type="submit" name="downvote" value="-1">
-</form>
+
+<div class="vote_box">
+  <form action='/<%= post_type %>/<%= post_id %>/upvote' method='post'>
+    <input type="submit" name="upvote" value="&#9650;">
+  </form>
+  <p class="score"><%= (post_type == "questions" ? Question : Answer).find(post_id).score %></p>
+  <form action='/<%= post_type %>/<%= post_id %>/downvote' method='post'>
+    <input type="submit" name="downvote" value="&#9660;">
+  </form>
 </div>
