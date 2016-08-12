@@ -13,6 +13,23 @@
     </form>
   <% end %>
 
+
+  <%# ---ANSWER QUESTION BUTTON & FORM--- %>
+  <% if logged_in? %>
+  
+    <button id="answer_question_btn" class="btn btn-default">Answer this question</button>
+
+    <div id="question_answer_form_container">
+      <div class="form-group">
+      <form>
+      FORM IS THIS
+      </form>
+      </div>
+    </div>
+
+  <% end %>
+  <%# ---------- ------------ ----------- %>
+
   <h2><% @answers.count %> Answers</h2>
   <%= erb :'questions/_answer', layout: false, locals: { answer: @selected_answer, selected_answer: true } if @selected_answer %>
   <% (@answers).each do |answer| %>
