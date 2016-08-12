@@ -27,7 +27,7 @@
 
   <section>
     <% if @comments_on_answers != [] %>
-    <h3>3 Most Recent Comments Made on Answers</h3>
+    <h3>3 Most Recent Comments Made on Answers:</h3>
     <%= erb :'users/_comments_on_answers', layout: false, locals: { comments: @comments_on_answers } %>
     <% end %>
   </section>
