@@ -103,7 +103,8 @@ ul li {
 }
 
 .page-wrapper {
-width : 620px;
+min-width : 620px;
+max-width: 720px;
 position : relative;
 margin : 0 auto;
 padding : 0 3px;
