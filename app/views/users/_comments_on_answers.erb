@@ -1,12 +1,11 @@
 <% comments.each do |comment| %>
-  <br>
-  <a href="/questions/<%=comment.post.question.id%>">
-    <% if comment.post.question.user.username == "Anonymous" %>
-    <%= comment.post.question.title = "[This Question was deleted by user]" %>
-    <% else %>
-    <%= comment.post.question.title %>
-    <% end %>
-  <br>
-  <%= comment.post.content %> - <%= comment.content %></a>
-  <br>
+  <div class="question">
+    <%= erb :'_question_title', layout: false, locals: { question: comment.post.question } %>
+    <div class="answer">
+      <%= erb :'_answer_content', layout: false, locals: { answer: comment.post } %>
+      <div class="user_highlight">
+        <%= erb :'_comment_without_attribution', layout: false, locals: { comment: comment, question_id: comment.post.question.id } %>
+      </div>
+    </div>
+  </div>
 <% end %>

@@ -1,0 +1,8 @@
+<p class="answer_content"><span class="score"><%= answer.score %></span> - <a href="/questions/<%= answer.question.id %>">
+  <% if answer.user.username == "Anonymous" %>
+    [This answer was deleted by user]
+  <% else %>
+    <%= answer.content %>
+  <% end %>
+  </a>
+</p>

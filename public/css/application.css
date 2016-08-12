@@ -124,11 +124,10 @@ width : 594px;
     outline: 0;
     padding: 7px;
     width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     background-color: white;
     color:#8a97a0;
     margin-bottom: 20px;
-    
 }
 
 .form-group input[type="submit"],
@@ -152,12 +151,33 @@ width : 594px;
     background: gray;
 }
 
+
 /*laur did this*/
 .form-group textarea {
   width: 100%;
 }
 
 /*.*/
+
+.comment {
+  border: dotted 1px black;
+}
+
+.score {
+  color: red;
+}
+
+.question {
+  border: dotted 1px blue;
+}
+
+.answer {
+  border: dotted 1px green;
+}
+
+.user_highlight {
+  background-color: lightgray;
+}
 
 @media (max-width: 600px) {
   h1 {
