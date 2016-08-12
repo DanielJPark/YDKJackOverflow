@@ -1,1 +1,3 @@
-<p><%= comment.content %> - <a href='/users/<%= user.id %>'><%= user.username %></a></p>
+<div class="comment">
+  <p class="comment-text"><%= comment.content %> - <a class="user-link"href='/users/<%= comment.user.id %>'><%= comment.user.username %></a></p>
+</div>

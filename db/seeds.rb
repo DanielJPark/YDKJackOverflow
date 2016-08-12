@@ -4,6 +4,7 @@ Category.delete_all
 Answer.delete_all
 Comment.delete_all
 
+
 u1 = User.create(username: "bob", email: "bob@bob.com", password: "password")
 u2 = User.create(username: "Joe", email: "joe@joe.com", password: "password")
 u3 = User.create(username: "Jon", email: "jon@jon.com", password: "password")

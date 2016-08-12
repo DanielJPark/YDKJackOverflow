@@ -1,3 +1,12 @@
+post '/questions/:qid/answers' do
+  if !logged_in?
+    redirect '/users/login'
+  end
+  @answer = Answer.create(params[:answer])
+
+  redirect "/questions/#{ params[:qid] }"
+end
+
 get '/answers/:id/comments/new' do
   @answer = Answer.find(params[:id])
   @question = @answer.question

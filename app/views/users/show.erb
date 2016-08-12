@@ -1,29 +1,26 @@
-<h1><%= @user.username %>'s Profile Page </h1>
-<br>
-<b>Questions Asked:</b>
-<br>
-<% @questions.each do |question| %>
-<a href="/questions/<%=question.id%>"><%= question.title %> - Score:<%= question.score %></a>
-<br>
-<% end %>
-<br>
-<br>
-<b>Questions Answered:</b>
-<br>
+<h2><%= @user.username %>'s Profile Page </h2>
+<div class="container">
+  <section>
+    <h3>Questions Asked:</h3>
+    <div class="user_highlight">
+      <% @questions.each do |question| %>
+        <%= erb :'_question_title', layout: false, locals: { question: question } %>
+      <% end %>
+    </div>
+  </section>
 
-<%= erb :'users/_answer', layout: false, locals: {answers: @answers} %>
+  <section>
+    <h3>Questions Answered:</h3>
+    <%= erb :'users/_answers', layout: false, locals: { answers: @answers } %>
+  </section>
 
-<br>
-<br>
+  <section>
+    <h3>3 Most Recent Comments Made on Questions:</h3>
+    <%= erb :'users/_comments_on_questions', layout: false, locals: { comments: @comments_on_questions } %>
+  </section>
 
-
-<b>3 Most Recent Comments Made on Questions:</b>
-
-<%= erb :'users/_comments_on_questions', layout: false, locals: { comments: @comments_on_questions} %>
-
-<br>
-
-<b>3 Most Recent Comments Made on Answers</b>
-
-<%= erb :'users/_comments_on_answers', layout: false, locals: { comments: @comments_on_answers} %>
-
+  <section>
+    <h3>3 Most Recent Comments Made on Answers</h3>
+    <%= erb :'users/_comments_on_answers', layout: false, locals: { comments: @comments_on_answers } %>
+  </section>
+</div>

@@ -157,11 +157,10 @@ width : 594px;
     outline: 0;
     padding: 7px;
     width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     background-color: white;
     color:#8a97a0;
     margin-bottom: 20px;
-    
 }
 
 .form-group input[type="submit"],
@@ -199,6 +198,25 @@ width : 594px;
   font-family: 'Patua One', cursive;
 }
 
+.comment {
+  border: dotted 1px black;
+}
+
+.score {
+  color: red;
+}
+
+.question {
+  border: dotted 1px blue;
+}
+
+.answer {
+  border: dotted 1px green;
+}
+
+.user_highlight {
+  background-color: lightgray;
+}
 
 @media (max-width: 600px) {
   h1 {
@@ -221,10 +239,6 @@ width : 594px;
     margin-left: 20px;
     margin-top: 10px;
   }
-
-/*  nav a{
-    float: none;
-  }*/
 
   .page-wrapper {
     width: 380px;

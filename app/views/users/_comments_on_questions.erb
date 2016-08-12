@@ -1,5 +1,8 @@
 <% comments.each do |comment| %>
-<br>
-  <a href="/questions/<%=comment.post.id%>"><%= comment.post.title %> - <%= comment.content %></a>
-<br>
+  <div class="question">
+    <%= erb :'_question_title', layout: false, locals: { question: comment.post } %>
+    <div class="user_highlight">
+      <%= erb :'_comment_without_attribution', layout: false, locals: { comment: comment, question_id: comment.post.id } %>
+    </div>
+  </div>
 <% end %>
