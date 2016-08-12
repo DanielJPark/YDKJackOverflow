@@ -31,4 +31,8 @@
     <%= erb :'users/_comments_on_answers', layout: false, locals: { comments: @comments_on_answers } %>
     <% end %>
   </section>
+
+  <% if @questions == [] && @answers == [] && @comments_on_questions == [] && @comments_on_answers == [] %>
+    <h3>Why are you looking at me, Jack? Go ask a question!</h3>
+  <% end %>
 </div>
