@@ -1,27 +1,34 @@
 <h2><%= @user.username %>'s Profile Page </h2>
 <div class="container">
   <section>
-    <h3>Questions Asked:</h3>
+    <% if @questions != [] %>
+      <h3>Questions Asked:</h3>
       <% @questions.each do |question| %>
         <div class="question user_highlight">
           <%= erb :'_question_title', layout: false, locals: { question: question } %>
         </div>
       <% end %>
-
+    <% end %>
   </section>
 
   <section>
-    <h3>Questions Answered:</h3>
-    <%= erb :'users/_answers', layout: false, locals: { answers: @answers } %>
+    <% if @answers != [] %>
+      <h3>Questions Answered:</h3>
+      <%= erb :'users/_answers', layout: false, locals: { answers: @answers } %>
+    <% end %>
   </section>
 
   <section>
+    <% if @comments_on_questions != [] %>
     <h3>3 Most Recent Comments Made on Questions:</h3>
     <%= erb :'users/_comments_on_questions', layout: false, locals: { comments: @comments_on_questions } %>
+    <% end %>
   </section>
 
   <section>
+    <% if @comments_on_answers != [] %>
     <h3>3 Most Recent Comments Made on Answers</h3>
     <%= erb :'users/_comments_on_answers', layout: false, locals: { comments: @comments_on_answers } %>
+    <% end %>
   </section>
 </div>
