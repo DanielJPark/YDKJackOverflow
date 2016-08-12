@@ -227,9 +227,11 @@ text-align : left;
 
 .vote_box {
   /*border: solid 1px black;*/
-  width: 15%;
+  display: inline-block;
+  max-width: 2%;
+  min-width: 12px;
   text-align: center;
-  background-color: lightpink;
+  background-color: lightgrey;
   margin: 10px 0px;
   padding: 10px;
 }
