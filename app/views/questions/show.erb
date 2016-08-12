@@ -1,11 +1,11 @@
 <div class = "page-titles">
   <h2><%= @question.title %></h2>
 </div>
-  <p><%= @question.content %></p>
 <div class = "score">
   <p><%= @question.score %></p>
 </div>
-  <%= erb :'questions/_vote_form', layout: false, locals: { post_type: "questions", post_id: @question.id } %></br>
+  <%= erb :'questions/_vote_form', layout: false, locals: { post_type: "questions", post_id: @question.id } %>
+ <p><%= @question.content %></p>
 
 <div class= "comments">
   <%= erb :'_comments', layout: false, locals: { comments: @question.comments, post_type: "questions", post_id: @question.id } %>
@@ -25,5 +25,4 @@
     <%= erb :'questions/_answer', layout: false, locals: { answer: answer, selected_answer: false } %>
   <% end %>
 </br>
-
 
