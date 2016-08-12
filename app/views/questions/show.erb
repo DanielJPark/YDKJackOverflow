@@ -1,6 +1,8 @@
 <div class = "page-titles">
   <h2><%= @question.title %></h2>
 </div>
+
+
   <%= erb :'questions/_vote_form', layout: false, locals: { post_type: "questions", post_id: @question.id } %>
  <p><%= @question.content %></p>
 
@@ -42,7 +44,7 @@
   <% end %>
 
   <h2><% @answers.count %> Answers</h2>
-</div>
+
   <%= erb :'questions/_answer', layout: false, locals: { answer: @selected_answer, selected_answer: true } if @selected_answer %>
   <% (@answers).each do |answer| %>
     <%= erb :'questions/_answer', layout: false, locals: { answer: answer, selected_answer: false } %>
