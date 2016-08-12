@@ -198,24 +198,31 @@ width : 594px;
   font-family: 'Patua One', cursive;
 }
 
-.comment {
+/*.comment {
   border: dotted 1px black;
-}
+}*/
 
 .score {
   color: red;
 }
 
 .question {
-  border: dotted 1px blue;
+  border-left: solid 2px black;
+  margin: 20px 0px;
+  /*padding: 10px 0px;*/
 }
 
 .answer {
-  border: dotted 1px green;
+  border-top: solid 1px black;
+  padding: 5px 10px;
 }
 
 .user_highlight {
-  background-color: lightgray;
+  background-color: lightyellow;
+}
+
+.post_title {
+  padding: 5px 10px;
 }
 
 .vote_box {

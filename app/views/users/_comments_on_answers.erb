@@ -3,7 +3,7 @@
     <%= erb :'_question_title', layout: false, locals: { question: comment.post.question } %>
     <div class="answer">
       <%= erb :'_answer_content', layout: false, locals: { answer: comment.post } %>
-      <div class="user_highlight">
+      <div class="user_highlight comments">
         <%= erb :'_comment_without_attribution', layout: false, locals: { comment: comment, question_id: comment.post.question.id } %>
       </div>
     </div>
