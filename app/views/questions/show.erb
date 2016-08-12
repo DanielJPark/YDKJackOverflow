@@ -10,7 +10,7 @@
 
   <div class="user-box">
     <span class="posted-by">posted by</span>
-    <a href="/users/<%= current_user.id %>"> <%= current_user.username %></a>
+    <a href="/users/<%= current_user.id %>"> <%= @question.user.username %></a>
     on <span class="posted-at"> <%= @question.created_at.to_s[0..9] %></span>
 
 
@@ -28,43 +28,27 @@
     <%= erb :'_comments', layout: false, locals: { comments: @question.comments, post_type: "questions", post_id: @question.id } %>
   </div>
 
-</div>
 
 
 
-<%# ---ANSWER QUESTION BUTTON & FORM--- %>
-<% if logged_in? %>
 
-<button id="answer_question_btn" class="btn btn-default">Answer this question</button>
-
-<div id="question_answer_form_container">
-  <div class="form-group">
-    <form id="new_answer" action="/questions/<%= @question.id %>/answers" 
-      method="post">
-
-      <label for="answer_content">
-        <textarea id="answer_content" class="form-control" name="answer[content]" rows="6" placeholder="type your answer here" value="">         
-        </textarea>
-
-        <input type="hidden" name="answer[user_id]" value="<%= current_user.id %>">
-        <input type="hidden" name="answer[question_id]" value="<%= @question.id %>">
-
-        <input type="submit" value="Submit Answer">
-
-      </form>
-    </div>
-  </div>
-
-  <% end %>
+  
 
   <h2>Answers</h2>
 
+<%= erb :'/questions/_answer_button' %>
 <div class="answers-container">
+
   <%= erb :'questions/_answer', layout: false, locals: { answer: @selected_answer, selected_answer: true } if @selected_answer %>
   <% (@answers).each do |answer| %>
   <div class="answer-container">
     <%= erb :'questions/_answer', layout: false, locals: { answer: answer, selected_answer: false } %>
   </div>
   <% end %>
+  </div>
+  <%= erb :'/questions/_answer_button' %>
 </div>
 
+
+
+</div>
