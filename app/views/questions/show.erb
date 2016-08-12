@@ -21,8 +21,18 @@
 
     <div id="question_answer_form_container">
       <div class="form-group">
-      <form>
-      FORM IS THIS
+      <form id="new_answer" action="/questions/<%= @question.id %>/answers" 
+        method="post">
+
+        <label for="answer_content">
+        <textarea id="answer_content" class="form-control" name="question[content]" rows="6" placeholder="type your answer here">         
+        </textarea>
+
+        <input type="hidden" name="question[user_id]" value="<%= %>">
+        <input type="hidden" name="question[question_id]" value="<%= %>">
+
+        <input type="submit" value="Submit Answer">
+      
       </form>
       </div>
     </div>
