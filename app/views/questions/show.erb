@@ -32,30 +32,7 @@
 
 
 
-<%# ---ANSWER QUESTION BUTTON & FORM--- %>
-<% if logged_in? %>
-
-<button id="answer_question_btn" class="btn btn-default">Answer this question</button>
-
-<div id="question_answer_form_container">
-  <div class="form-group">
-    <form id="new_answer" action="/questions/<%= @question.id %>/answers" 
-      method="post">
-
-      <label for="answer_content">
-        <textarea id="answer_content" class="form-control" name="answer[content]" rows="6" placeholder="type your answer here" value="">         
-        </textarea>
-
-        <input type="hidden" name="answer[user_id]" value="<%= current_user.id %>">
-        <input type="hidden" name="answer[question_id]" value="<%= @question.id %>">
-
-        <input type="submit" value="Submit Answer">
-
-      </form>
-    </div>
-  </div>
-
-  <% end %>
+  <%= erb :'/questions/_answer_button' %>
 
   <h2>Answers</h2>
 
@@ -68,3 +45,4 @@
   <% end %>
 </div>
 
+<%= erb :'/questions/_answer_button' %>
