@@ -1,7 +1,9 @@
-<h4 class="post_title">
-  <% if question.user.username == "Anonymous" %>
-    [This Question was deleted by user]
-  <% else %>
-    <%= question.title %>
-  <% end %>
-</h4>
+<div class="question">
+  <p class="post_title"><span class="score"><%= question.score %></span> - <a href="/questions/<%= question.id %>">
+    <% if question.user.username == "Anonymous" %>
+      [This Question was deleted by user]
+    <% else %>
+      <%= question.title %>
+    <% end %></a>
+  </p>
+</div>
