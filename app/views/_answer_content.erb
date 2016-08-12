@@ -1,0 +1,7 @@
+<h4 class="answer_content">
+  <% if answer.user.username == "Anonymous" %>
+    [This answer was deleted by user]
+  <% else %>
+    <%= answer.content %>
+  <% end %>
+</h4>
