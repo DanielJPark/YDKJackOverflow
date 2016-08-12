@@ -1,3 +1,12 @@
+post '/questions/:qid/answers' do
+  @answer = Answer.new(params[answer])
+  if @answer.save
+    @question = Question.find(params[:qid])
+    @question.answers << @answer
+  end
+
+end
+
 get '/answers/:id/comments/new' do
   @answer = Answer.find(params[:id])
   @question = @answer.question
