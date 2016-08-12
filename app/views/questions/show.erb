@@ -10,7 +10,7 @@
 
   <div class="user-box">
     <span class="posted-by">posted by</span>
-    <a href="/users/<%= current_user.id %>"> <%= current_user.username %></a>
+    <a href="/users/<%= current_user.id %>"> <%= @question.user.username %></a>
     on <span class="posted-at"> <%= @question.created_at.to_s[0..9] %></span>
 
 
