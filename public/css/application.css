@@ -221,9 +221,10 @@ width : 594px;
   }
 
   #categories li {
-    float: left;
+    float: none;
+    width: 100%;
     font-size: 13px;
-    margin-left: 5px;
+    margin-left: -25px;
   }
 }
 
