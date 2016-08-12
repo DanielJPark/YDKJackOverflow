@@ -151,6 +151,14 @@ width : 594px;
     background: gray;
 }
 
+
+/*laur did this*/
+.form-group textarea {
+  width: 100%;
+}
+
+/*.*/
+
 .comment {
   border: dotted 1px black;
 }
