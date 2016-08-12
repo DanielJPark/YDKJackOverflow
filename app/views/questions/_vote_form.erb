@@ -1,4 +1,9 @@
-<form action='/<%= post_type %>/<%= post_id %>/vote' method='post'>
-  <input type="submit" name="upvote" value="1">
-  <input type="submit" name="downvote" value="-1">
-</form>
+<div class="vote_box">
+  <form action='/<%= post_type %>/<%= post_id %>/vote' method='post'>
+    <input type="submit" name="upvote" value="+1">
+  </form>
+  <p class="score"><%= (post_type == "questions" ? Question : Answer).find(post_id).score %></p>
+  <form action='/<%= post_type %>/<%= post_id %>/vote' method='post'>
+    <input type="submit" name="downvote" value="-1">
+  </form>
+</div>
