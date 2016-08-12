@@ -224,6 +224,15 @@ text-align : left;
   padding: 5px 10px;
 }
 
+.vote_box {
+  /*border: solid 1px black;*/
+  width: 15%;
+  text-align: center;
+  background-color: lightpink;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
 @media (max-width: 600px) {
   h1 {
     font-size: 40px;
