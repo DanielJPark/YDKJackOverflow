@@ -57,11 +57,14 @@
 
   <% end %>
 
-  <h2><% @answers.count %> Answers</h2>
+  <h2>Answers</h2>
 
+<div class="answers-container">
   <%= erb :'questions/_answer', layout: false, locals: { answer: @selected_answer, selected_answer: true } if @selected_answer %>
   <% (@answers).each do |answer| %>
-  <%= erb :'questions/_answer', layout: false, locals: { answer: answer, selected_answer: false } %>
+  <div class="answer-container">
+    <%= erb :'questions/_answer', layout: false, locals: { answer: answer, selected_answer: false } %>
+  </div>
   <% end %>
-</br>
+</div>
 

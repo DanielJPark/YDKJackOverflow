@@ -1,7 +1,11 @@
-.question-container {
+.question-container, .answers-container, .answer-container {
     border: 1px dotted lightgrey;
     margin: 5px 0px 30px;
     padding: 0px 10px;
+}
+
+.answer-container {
+    margin-left: 50px;
 }
 
 div.answer-content {
@@ -24,6 +28,12 @@ div.question-container div.comments {
     clear: both;
 }
 
+div.answer-container div.comments {
+    border: none;
+    clear: both;
+}
+
+
 div.question-container div.comments div.comment {
     border-top: 2px solid lightgrey;
     border-bottom: 2px solid lightgrey;
@@ -38,3 +48,4 @@ div.user-box {
     background: lightgrey;
     margin-bottom: 10px;
 }
+
