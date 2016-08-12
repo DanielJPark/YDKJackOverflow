@@ -1,7 +1,9 @@
-<h2> <%= @category.title %> </h2>
+<div class = "page-titles">
+  <h2> <%= @category.title %> </h2>
+</div>
 
-<h2>Questions:</h2>
-  <ul>
+<h2>click on a question to see </br> more information</h2>
+  <ul class = "content">
     <% @questions.each do |question| %>
       <li><a href="/questions/<%= question.id %>">
         <% if question.user.username == "Anonymous" %>
